@@ -75,16 +75,16 @@ class Utils{
     async getCoffeePodsFromTheList(){
 
         let list = this.GetCoffeeList();
-        let coffeeMachines = [];
+        let coffeePods = [];
 
         for(let i = 0; i < list.length; i++){
 
             if(list[i].includes("pod")){
-                coffeeMachines.push(list[i]);
+                coffeePods.push(list[i]);
             }
         }
 
-        return coffeeMachines;
+        return coffeePods;
     }
 
     mapCoffeeMachinesFilters(){

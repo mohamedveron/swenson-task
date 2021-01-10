@@ -18,7 +18,7 @@ class CoffeePod{
         return _instance;
     }
 
-    async getCoffeeMachines(filters){
+    async getCoffeePods(filters){
 
         let pods = [];
         let totalPods = await this.formulateCoffeePodObjects();
@@ -73,20 +73,14 @@ class CoffeePod{
         
         for(let i = 0; i < list.length; i++){
 
-            // get coffe machine object elements
+            // get coffe pod object elements
             var elements = list[i].split(",");
 
             // get code and product type
             var subElements = elements[0].split("–");
             var compatible = false;
 
-            // detect if coffee machine is compatible or not
-            if(elements.length > 2 && elements[2].includes("compatible")){
-
-                compatible = true;
-            }
-
-            var pod = new CoffeeMachineModel(subElements[0], subElements[1], compatible);
+            var pod = new CoffeePodModel(subElements[0], subElements[1], elements[2], elements[1]);
             
             pods.push(pod);
         }
