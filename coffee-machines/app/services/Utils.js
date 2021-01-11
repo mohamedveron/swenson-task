@@ -106,10 +106,19 @@ class Utils{
         productTypes['COFFEE_POD_LARGE'] = ' large coffee pod';
         productTypes['COFFEE_POD_SMALL'] = ' small coffee pod'; 
         productTypes['ESPRESSO_POD'] = ' espresso pod'; 
+
+        let flavors = new Map();
+        flavors['COFFEE_FLAVOR_VANILLA'] = ' vanilla';
+        flavors['COFFEE_FLAVOR_CARAMEL'] = ' caramel';
+        flavors['COFFEE_FLAVOR_PSL'] = ' psl';
+        flavors['COFFEE_FLAVOR_MOCHA'] = ' mocha';
+        flavors['COFFEE_FLAVOR_HAZELNUT'] = ' hazelnut';
+
         
         return {
 
-            productTypes: productTypes
+            productTypes: productTypes,
+            flavors: flavors
         }
     }
 }

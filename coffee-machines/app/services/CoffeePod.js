@@ -29,41 +29,44 @@ class CoffeePod{
             return totalPods;
         }
 
-        if(filters['product_type'] && filters['water_line_compatible']){
+        if(filters['product_type'] && filters['coffee_flavor']){
 
             let type = filter.productTypes[filters['product_type']];
+            let flavor = filter.flavors[filters['coffee_flavor']]
 
              for(let i = 0; i < totalPods.length; i++){
                 
-                 if(totalPods[i]._product_type == type && totalPods[i]._water_line_compatible === filters['water_line_compatible']){
-                     machines.push(totalPods[i]);
+                 if(totalPods[i]._product_type == type && totalPods[i]._coffee_flavor === flavor){
+                    pods.push(totalPods[i]);
                  }
              }
         }
 
-        else if(!filters['product_type'] && filters['water_line_compatible']){
+        else if(!filters['product_type'] && filters['coffee_flavor']){
+
+            let flavor = filter.flavors[filters['coffee_flavor']]
 
              for(let i = 0; i < totalPods.length; i++){
 
-                 if(totalPods[i]._water_line_compatible === filters['water_line_compatible']){
-                     machines.push(totalPods[i]);
+                 if(totalPods[i]._coffee_flavor === flavor){
+                    pods.push(totalPods[i]);
                  }
              }
         }
 
-        else if(filters['product_type'] && !filters['water_line_compatible']){
+        else if(filters['product_type'] && !filters['coffee_flavor']){
 
             let type = filter.productTypes[filters['product_type']];
 
              for(let i = 0; i < totalPods.length; i++){
                 
                  if(totalPods[i]._product_type == type){
-                     machines.push(totalPods[i]);
+                    pods.push(totalPods[i]);
                  }
              }
        }
 
-        return machines;
+        return pods;
     }
 
    async formulateCoffeePodObjects(){
